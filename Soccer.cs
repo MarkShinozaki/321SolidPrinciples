@@ -7,8 +7,10 @@ public class SoccerPlayer
     public int JerseyNumber { get; set; }
 
     // 1. What would make sense to have here? 
+    // Hint: Maybe something to handle the player's actions?
     
     // 2. How do these Violate SRP?
+    // Hint: by handling 1. above, you can refactor these methods to not violate SRP? 
     public void ScoreGoal()
     {
         Console.WriteLine($"{Name} scored a goal!");
@@ -27,6 +29,7 @@ public class SoccerPlayer
     }
 
     // 3. How can you refactor this to not violate OCP?
+    // Hint: Should 'SoccerPlayer' class be closed for modification?
     public void PlayGame(List<Action> actions)
     {
         foreach (var action in actions)
@@ -44,7 +47,9 @@ class Program
 
         List<Action> player1Actions = new List<Action>
         {
-            // B. Violates OCP
+            // 4. Violates OCP
+            // Hint: If we added a new type of action, would that require modifying 'SoccerGame' 
+            // or 'SoccerPlayer'? 
             () => player1.Defend(),
             () => player1.ScoreGoal(),
             () => player1.Celebrate()
