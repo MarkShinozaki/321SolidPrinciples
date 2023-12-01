@@ -29,7 +29,9 @@ public class SoccerPlayer
     }
 
     // 3. How can you refactor this to not violate OpenClosedPrinciple?
-    // Hint: Should 'SoccerPlayer' class be closed for modification?
+    // Hint: PlayGame is being defined in the SoccerPlayer class which 
+    // takes a list of actions. Is this method open extenstion? Could you 
+    // use an interface to help? 
     public void PlayGame(List<Action> actions)
     {
         foreach (var action in actions)
@@ -48,11 +50,13 @@ class Program
         List<Action> player1Actions = new List<Action>
         {
             // 4. Violates OCP
-            // Hint: If we added a new type of action, would that require modifying 'SoccerGame' 
-            // or 'SoccerPlayer'? 
+            // Hint: A lambda expression is being used to create methods for actions
+            // that SoccerPlayer can perform, is this method closed for modification? 
+            // For the behavior of ScoreGoal, would you be extending it or changing it to 
+            // alter its behavior? 
             () => player1.Defend(),
             () => player1.ScoreGoal(),
-            () => player1.Celebrate()
+            () => player1.Celebrate() 
         };
 
         player1.PlayGame(player1Actions);
