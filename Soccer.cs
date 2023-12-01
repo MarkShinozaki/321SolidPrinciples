@@ -9,7 +9,7 @@ public class SoccerPlayer
     // 1. What would make sense to have here? 
     // Hint: Maybe something to handle the player's actions?
     
-    // 2. How do these Violate SRP?
+    // 2. How do these Violate SingleResonsibilityPrinciple?
     // Hint: by handling 1. above, you can refactor these methods to not violate SRP? 
     public void ScoreGoal()
     {
@@ -28,7 +28,7 @@ public class SoccerPlayer
         Console.WriteLine($"{Name} is celebrating!");
     }
 
-    // 3. How can you refactor this to not violate OCP?
+    // 3. How can you refactor this to not violate OpenClosedPrinciple?
     // Hint: Should 'SoccerPlayer' class be closed for modification?
     public void PlayGame(List<Action> actions)
     {
